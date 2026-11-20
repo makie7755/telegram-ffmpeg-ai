@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: telegram-ffmpeg-ai
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.5
+      - key: TELEGRAM_ALLOWED_USER_IDS
+        sync: false
